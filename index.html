@@ -11,590 +11,528 @@
 </head>
 <body>
     <p>
-    判断题：
-1.列表是不可变对象，支持在原处修改。(错)</br>
-2.元组是不可变的，不能直接修改元组中元素的值，也不能为元组增删元素。(对)</br>
-3.Python使用lambda创建匿名函数，匿名函数拥有自己的命名空间。(错)</br>
-4.同一个列表中的元素的数据类型可以各不相同。(对)</br>
-5.列表、元组和字符串属于有序序列，其中的元素有严格的先后顺序。(对)</br>
-6.集合中的元素没有特定顺序但可以重复。(错)</br>
-7.列表推导式在逻辑上等价于一个循环语句，只是形式上更加简洁。(对)</br>
-8.在Python中创建一个空集合，可以直接用set1=0。(错)</br>
-9.列表、元组和字符串都支持双向索引，有效索引的范围为[-L,L],L为列表、元组或字符串的长度。(</br>错)
-10.包含列表的元组可以作为字典的键。(错)</br>
-11.列表是不可变对象，支持在原处修改。(错)</br>
-12.元组是不可变的，不能直接修改元组中元素的值，也不能为元组增删元素。(对)</br>
-13.Python使用lambda创建匿名函数，匿名函数拥有自己的命名空间。(错)</br>
-14.同一个列表中的元素的数据类型可以各不相同。(对)</br>
-15.列表、元组和字符串属于有序序列，其中的元素有严格的先后顺序。(对)</br>
-16.集合中的元素没有特定顺序但可以重复。(错)</br>
-17.列表推导式在逻辑上等价于一个循环语句，只是形式上更加简洁。(对)</br>
-18.在Python中创建一个空集合，可以直接用set1=0。(错)</br>
-19.列表、元组和字符串都支持双向索引，有效索引的范围为[-L,L],L为列表、元组或字符串的长度。(</br>错)
-20.包含列表的元组可以作为字典的键。(错)</br>
-21.列表是包含0个或多个对象引用的有序序列，属于序列类型。(对)</br>
-22.字典是存储可变数量键值对的数据结构，键和值可以是任意类型数据结构。(对)</br>
-23.创建Series时如果指定了index,则只能用index访问数据。(错)</br>
-24.创建DataFrame时会自动加上索引，且全部列会被有序排列。(错)</br>
-25.Pandas中数据对象的索引可以随时被修改。(对)</br>
-26.Pandas中数据的重建索引指对索引重新排序而不是修改。(错)</br>
-27.交叉表是一种特殊的透视表，主要用于计算分组频率。(对)</br>
-28.两个索引不一致的series进行算术运算会出错。(错)</br>
-29.Pandas中可以通过行索引或行索引位置的切片形式选取行数据。(对)</br>
-30.DataFrame的列与列之间的数据类型必须是相同的。(错)</br>
-31.Pandas中使用loc和isin两个函数配合使用，按指定条件对数据进行提取。(对)</br>
-32.DataFrame对象每一行都是一个Series对象。(对)</br>
-33.Pandas中的描述性统计一般会包括缺失数据。(错)</br>
-34.列表是不可变对象，支持在原处修改。(错)</br>
-35.元组是不可变的，不能直接修改元组中元素的值，也不能为元组增删元素。(对)</br>
-36.Python使用lambda创建匿名函数，匿名函数拥有自己的命名空间。(错)</br>
-37.同一个列表中的元素的数据类型可以各不相同。(对)</br>
-38.集合中的元素没有特定顺序但可以重复。(错)</br>
-39.列表推导式在逻辑上等价于一个循环语句，只是形式上更加简洁。(对)</br>
-40.在Python中创建一个空集合，可以直接用set1=0。(错)</br>
-41.列表、元组和字符串都支持双向索引，有效索引的范围为[-L,L],L为列表、元组或字符串的长度。(</br>错)
-42.包含列表的元组可以作为字典的键。(错)</br>
-43.Pandas中可以通过行索引或行索引位置的切片形式选取行数据。(对)</br>
-44.DataFrame的列与列之间的数据类型必须是相同的。(错)</br>
-45.Pandas中使用loc和isin两个函数配合使用，按指定条件对数据进行提取。(对)</br>
+        <!-- 递归第一题：
+        <div>
+            //递归
+            //第一题
+            //补充代码，完成1、2、3、4四个数的排列问题。
+            #include<stdio.h>
+                void permutation(int k,int n,int *a)
+                {
+                    //补充代码位置
+                    int i,j,temp;
+                    if(k==n-1)
+                    {
+                        for(i=0;i<n;i++)
+                        {
+                            printf("%d",a[i]);
+                        }
+                        printf("\n");
+                    }
+                    else
+                    {
+                        for(j=k;j<n;j++)
+                        {
+                            temp=a[k];a[k]=a[j];a[j]=temp;
+                            permutation(k+1,n,a);
+                            temp=a[k];a[k]=a[j];a[j]=temp;
+                        }
+                    }
+                }
+                void main()
+                {
+                    int  a[]={1,2,3,4},k=0,n=4;
+                    permutation(k,n,a);
+                }
+         
+        递归第二题：
+        //递归
+        //补全代码，完成树的中序遍历非递归算法。
+        <div>
+            
+            #include<stdio.h>
+                #include<stdlib.h>
+                typedef struct Node{
+                    char data;
+                    struct Node *leftChild;
+                    struct Node *rightChild;
+                }TreeNode;
+                void createBinaryTree(TreeNode **root)
+                {
+                    char ch;
+                    scanf("%c",&ch);
+                    if(ch!='#')
+                    {
+                        *root=(TreeNode*)malloc(sizeof(TreeNode));
+                        (*root)->data=ch;
+                        createBinaryTree(&(*root)->leftChild);
+                        createBinaryTree(&(*root)->rightChild);
+                    } 
+                    else
+                    {
+                        *root=NULL;
+                    }
+                }
+                void inOrderByNonRecursion(TreeNode *root)
+                {
+                    
+                    //补充代码位置
+            
+                    TreeNode *s[100];
+                    int top=0;
+                    if(root==NULL)
+                    {
+                        printf("Empty Tree.\n");
+                        return;	
+                    } 
+                    while(top>0 || root!=NULL)
+                    {
+                        while(root!=NULL)
+                        {
+                            s[top++]=root;
+                            root=root->leftChild;
+                        }
+                        root=s[--top];
+                        printf("%c",root->data);
+                        root=root->rightChild;
+                    }
+                }
+                void main()
+                {
+                    TreeNode *root ;
+                    createBinaryTree(&root);
+                    inOrderByNonRecursion(root);
+                }
+        </div>  
 
-单选题：
-1.Jupyter notebook不具备的功能是(B)。
-A. Jupyter notebook可以直接生成一份交互式文档
-B. Jupyter notebook可以安装Python库
-C. Jupyter notebook可以导出HTML文件
-D. Jupyter notebook可以将文件分享给他人</br>
-2.在Jupyter notebook的命令模式下，要查看所有快捷键应该按下的快捷键是(C)。
-A. M
-B. ESC
-C. H
-D. A</br>
-3.在Jupyter notebook的cell中安装包语句正确的是(C)。
-A. pip install包名
-B. conda install包名
-C. !pip install包名
-D. Iconda install包名</br>
-4.下面不属于python特性的是(C)。
-A. 简单易学
-B. 免费开源
-C. 属于低级语言
-D. 高可移植性</br>
-5.以下哪条语句定义了一个Python字典(A)。
-A. {}
-B. {1,2}
-C. [1,2]
-D. (1,2)</br>
-6.字符串是一个字符序列，例如，字符串s,从右侧向左第3个字符用什么索引(B)。
-A. s[3]
-B. s[-3]
-C. s[0:-3]
-D. s[:-3]</br>
-7.循环结构可以使用Python语言中的(B)语句实现。
-A. print
-B. while
-C. loop
-D. if</br>
-8.Python中定义函数的关键字是(A)。
-A. def
-B. define
-C. function
-D. defunc</br>
-9.Numpy提供了两种基本对象，一种是ndarray,另一种是(B)。
-A. array
-B. ufunc
-C. matrix
-D. Series</br>
-10.创建一个3*3的数组，下列代码中错误的是(C)。
-A. np.arange(0,9).reshape(3,3)
-B. np.eye(3)
-C. np.random.random([3,3,3])
-D. np.mat("1,2,3;4,5,6;7,8,9")</br>
-11.Numpy中统计数组元素个数的方法是(C)。
-A. ndim
-B. shape
-C. size
-D. itemsize</br>
-12.在以下Pandas方法中不能实现合并数据的函数是(A)。
-A. agg()函数
-B. concat()函数
-C. join()方法
-D. merge()函数</br>
-13.设置索引使用哪种方法(D)。
-A. merge()方法
-B. concat()方法
-C. to_datetime()方法
-D. set_index()方法</br>
-14.Jupyter notebook不具备的功能是(B)。
-A. Jupyter notebook可以直接生成一份交互式文档
-B. Jupyter notebook可以安装Python库
-C. Jupyter notebook可以导出HTML文件
-D. Jupyter notebook可以将文件分享给他人</br>
-15.下面不属于python特性的是(C)。
-A. 简单易学
-B. 免费开源
-C. 属于低级语言
-D. 高可移植性</br>
-16.以下哪条语句定义了一个Python字典(A)。
-A. {}
-B. {1,2}
-C. [1,2]
-D. (1,2)</br>
-17.循环结构可以使用Python语言中的(B)语句实现。
-A. print
-B. while
-C. loop
-D. if</br>
-18.Numpy提供了两种基本对象，一种是ndarray，另一种是(B)。
-A. array
-B. ufunc
-C. matrix
-D. Series</br>
-19.在以下Pandas方法中不能实现合并数据的函数是(A)。
-A. agg()函数
-B. concat()函数
-C. join()方法
-D. merge()函数</br>
-20.设置索引使用哪种方法(D)。
-A. merge()方法
-B. concat()方法
-C. to_datetime()方法
-D. set_index()方法</br>
-21.下列说法正确的是(A)。
-A. Series对象的结构比DataFrame对象的结构简单
-B. DataFrame可以看成Series的子集
-C. sort_index用作索引重建
-D. HDF4格式文件可以与HDF5文件兼容</br>
-22.下列说法正确的是(B)。
-A. count函数用于数据中的所有数据
-B. 统计时使用descript函数，最后结果不会出现min项
-C. diff表示三阶差分
-D. var函数用作方差统计</br>
-23.下列说法不正确的是(A)。
-A. union用于计算索引的交集
-B. isin用于数据是否包含在其中
-C. insert函数可以插入索引
-D. unique用于计算索引中的唯一数组</br>
-24.Jupyter notebook命令模式下，查看“所有快捷键”的快捷键是(C)。
-A. M
-B. ESC
-C. H
-D. A</br>
-25.字符串是一个字符序列，例如，字符串s，从右侧向左第3个字符用什么索引(B)。
-A. s[3]
-B. s[-3]
-C. s[0:-3]
-D. s[:-3]</br>
-26.Python中定义函数的关键字是(A)。
-A. def
-B. define
-C. function
-D. defunc</br>
-27.创建一个3*3的数组，下列代码中错误的是(C)。
-A. np.arange(0,9).reshape(3,3)
-B. np.eye(3)
-C. np.random.random([3,3,3])
-D. np.mat("1,2,3;4,5,6;7,8,9")</br>
-28.Numpy中统计数组元素个数的方法是(C)。
-A. ndim
-B. shape
-C. size
-D. itemsize</br>
-29.Numpy中的diag函数用于创建(A)。
-A. 对角矩阵
-B. 三角矩阵
-C. 值为1的矩阵
-D. 值为0的矩阵</br>
-30.Numpy.random模块中用于对一个序列进行随机排序的函数是(B)。
-A. uniform
-B. shuffle
-C. Permutation
-D. normal</br>
-31.在NumPy中创建一个元素均为0的数组可以使用(A)函数。
-A. zeros()
-B. arange()
-C. linspace()
-D. logspace()</br>
-32.下列选项中不能创建Numpy数组的选项是(D)。
-A. a=numpy.array([1,2,3])
-B. a =numpy.array([1,[1,2,3],3])
-C. a=numpy.array([[1,2,3],[4,5,6]])
-D. a=numpy.array([['xiao','qian'],['xiao','feng']])</br>
-33.下列代码运行的结果是(B)。
-a = numpy.array([1,2,3])
-b = numpy.array([4,5,6])
-a + b
-A. [1,2,3,4,5,6]
-B. [5,7,9]
-C. 21
-D. 12</br>
+            穷举第一题：
+            选择排序
+        #include<stdio.h>
+            #include<stdlib.h>
+            #include<time.h>
+            #define N 100
+            void initData(int A[],int n)
+            {
+                srand((unsigned int)time(NULL));
+                int i;
+                for(i=0;i<n;i++)
+                {
+                    A[i]=rand()%100;
+                }
+            }
+            void SelectionSort(int A[],int n)
+            {
 
-填空题：
-1，CSV(Comma-Separated Values)文件也称为字符分隔值文件，因为分隔字符也可以《是  》逗号。</br>
-2，Python中要使字符串转义字符不转义，则直接在字符串前加字符《 r》</br>
-3，已知字典dic={w97,'a':19},则dic.get(w,None)的值是《 97》</br>
-4，列表的sort方法没有返回值，或者说返回值为《 none 》</br>
-5，有arr =np.arange(12).reshape(3,4),则arf[(0,1),(1,3)]对应的值是《 1 》和 《 7 》;</br>
-arr[1:2,(0,3)]对应的元素是 《 4 》和 《  7 》;</br>
-arr.ndim的值是 《 2 》</br>
-6，a=np.arange(8).reshape(2,4),np.hsplit(a,2)返回值是《 [array( [ 0 , 1 ] , [ 4 , 5 ] ) , array ( [ 2 , 3 ] , [ 6 , 7 ] ) ]  》</br>
-7，数组转置是数据重塑的一种特殊形式，可以通过《 transpose 》方法或数组的T属性实现。</br>
-8，创建一个范围在(0,1)之间的长度为12的等差数列的语句是《 np.linspace(0,1,12) 》</br>
-9，将数组arr中所有的奇数置为-1对应的语句是《 arr[ arr%2!=0 ] = -1 》</br>
-10，Pandas中与set_index方法相关用于还原索引的方法是《 reset_index 》</br>
-11，Series是一种一维数组对象，包含一个值序列。Series中的数据通过《 索引 》访问。</br>
-12，Series有两种描述某条数据的手段，即《 索引 》和标签。</br>
-13，一个DataFrame对象的属性values和ndim分别指《 数组的值 》和《 维度数 》</br>
-14，reindex方法中的参数method可以取值为'fill'和'bfill',分别指《 向前填充 》和 《 向后填充 》</br>
-15，随机抽取数据的语句sample(frac=0.7)中的frac参数的含义是《 随机抽取70%的数据 》</br>
-16，修改数据中的参数“inplace”的含义是《 在原地修改数据，不创建新的对象 》</br>
-17，Pandas的数据对象在进行算术运算时如果存在不同索引会进行数据对齐，但会引入《 NaN 》</br>
-18，Pandas中绘图时可以只用plot方法，具体绘图可以用参数《 kind 》设置。</br>
-19，一个DataFrame对象的属性values和ndim分别指《 数组的值 》和《 维度数 》</br>
-20，reindex方法中的参数method可以取值为‘ffill'和'bfill',分别指《 向前填充 》和《 向后填充 》</br>
-21，随机抽取数据的语句sample(frac=0.7)中的frac参数的含义是《 随机抽取70%的数据 》</br>
-22，修改数据中的参数“inplace”的含义是《 在原地修改数据，不创建新的对象 》</br>
-23，Pandas的数据对象在进行算术运算时如果存在不同索引会进行数据对齐，但会引入《 NaN 》</br>
-24，Pandas中的applymap方法的作用是《 对DataFrame中每个元素应用函数 》</br>
-25，Pandas的plot绘制直方图时，kind取值为《 hist 》</br>
-26，Pandas的plot绘制密度图时，kind取值为《 density 》</br>
-27，Pandas的plot绘制散点图时，kind取值为《 scatter 》</br>
-28，Pandas的plot绘制柱状图时，kind取值为《 bar 》</br>
-29，Pandas中直接删除数据的方法是《 drop 》</br>
-30，Pandas中删除数据时，行列数据通过参数《 axis 》确定删除的是行还是列。</br>
-31，DataFrame.replace({'B':'E','C':'F'})表示将表中的B替换为《 E 》,C替换为《 F 》</br>
-32，Pandas通过DataFrame.rename()函数传入需要修改列名的字典形式来修改《 列名 》</br>
-33，Pandas中的《 groupby 》方法可以根据索引或字段对数据进行分组。</br>
+                //补充代码位置
+                int i,j,minloc,min;
+                for(i=0;i<n-1;i++)
+                {
+                    min=A[i];
+                    minloc=i;
+                    for(j=i+1;j<n;j++)
+                    {
+                        if(min>A[j])
+                        {
+                            min=A[j];
+                            minloc=j;
+                        }
+                    }
+                min=A[i];
+                A[i]=A[minloc];
+                A[minloc]=min;
+                }
+            }
+            void output(int A[],int n)
+            {
+                int i;
+                for(i=0;i<n;i++)printf("%-4d",A[i]);
+                printf("\n");
+            }
+            void main()
+            {
+                int n=10,a[N];
+                initData(a,n);
+                printf("disorder:");
+                output(a,n);
+                SelectionSort(a,n);
+                printf("ordered:");
+                output(a,n);
+            }            
 
-34，给定一个数列，该数列由range()函数生成，形如 [a, a+d, a+2d, ..., a+(n-1)d]，
-其中a是首项，d是公差，n是项数。现在给出数列中的几个参数初始值，请分析程序，
-推断出完整的range()函数参数，
-并计算输出原数列完成空白部分参数填写（5分）。
-设：
-a = 1
-d = 3
-n = 6
-请根据题目说明，分析并计算出该数列后续n项值分别是什么？
-[1, 
-《 4 》，
-《 7 》，
-《 10 》，
-《 13 》，
-《 16 》
-]
-</br>
-35，给定一个整数列表 v = [7,11,13]，该列表包含若干个不重复的整数元素。
-现在，需要通过仔细分析完成以下几个复杂的统计任务并将你分析的结果通过函数的形式填写在下面的横线处（5分）。
-①找出最大值：使用适当的统计函数，从列表 v 中找出最大的元素，并将其打印出来。
-②找出最小值：同样地，利用统计函数，从列表 v 中定位并打印出最小的元素。
-③计算元素总和：你需要编写代码，利用一个统计函数来计算列表 v 中所有元素的总和，并将这个总和值打印出来。
-④计算并格式化输出平均值：最后，你需要计算列表 v 中所有元素的平均值。
-这个平均值需要被格式化为保留两位小数的浮点数，并且以特定的字符串格式输出。输出的字符串应该包含“平均值为：”
-这个前缀，后面紧跟着格式化后的平均值。
-v = [7,11,13]
-print(《 max(v) 》) #通过统计函数找出v中的最大元素并打印
-print(《 min(v) 》) #通过统计函数找出v中的最小元素并打印
-print(《 sum(v) 》) #通过统计函数求出v中全部元素的和
-print("《 % 》.2f" %(《 sum(v)/len(v) 》)) #借助于统计函数，求v中全部元素的均值并输出
-</br>
-36，# 用户输入一个字符串
-original_string = input("请输入一个字符串：")
-# 初始化反转后的字符串为空  
-reversed_string = ""
-# 遍历原始字符串，逐个字符添加到反转字符串的前面，实现反转
-for char in original_string:
-    # 空白处1：填写实现反转的代码
-    reversed_string = 《 char+reversed_string 》
- + reversed_string  # 输出反转后的字符串
-print("反转后的字符串是：", reversed_string)
-# 检查反转后的字符串是否为回文
-def is_palindrome(s):
-    # 空白处2：填写判断回文的条件
-    if 《 s==s[ : : -1 ] 》:
-        return True
-    else:
-        return False
-# 调用函数检查反转后的字符串是否为回文，并输出结果
-if is_palindrome(reversed_string):
-    print("反转后的字符串是回文。")
-else:
-    print("反转后的字符串不是回文。")
-# 将原始字符串转换为大写，并统计大写字母'A'出现的次数
-uppercase_string = original_string.upper()
-count_A = 0
-# 遍历大写字符串，统计字母'A'的出现次数
-for char in uppercase_string:
-    # 空白处3：填写判断条件
-    if char == 《 A 》:
-        count_A += 1
-# 输出字母'A'的出现次数
-print("字母'A'在原始字符串中出现了", count_A, "次。")
-# 最后，将原始字符串进行分割，并输出分割后的列表
-# 空白处4和5：填写适当的字符串方法和分隔符
-split_string = original_string.《 split 》( 《","》）)
-print("分割后的字符串列表：", split_string)
-</br>
-37，# 给定一个包含数字的列表
-numbers = [4, 8, 15, 16, 23, 42]
-# 初始化总和为0
-total = 0
-# 遍历列表中的每个数字，并累加到总和中
-for num in numbers:
-    total += num
-# 计算平均值，此处需要填写空白处1：计算列表长度
-average = total / 《 len(numbers) 》
-# 输出平均值，保留两位小数。此处需要填写空白处2：格式化输出
-print(f"平均值是：{average:.《 2 》f}")
-# 接下来，我们要找出列表中的最大和最小值
-# 初始化最大和最小值为列表的第一个元素
-max_value = numbers[0]
-min_value = numbers[0]
-# 遍历列表，更新最大值和最小值
-for num in numbers:
-    # 此处需要填写空白处3和4：比较并更新最大值和最小值
-    if num > 《 max_value 》:
-        max_value = num
-    if num 《 《 min_value 》:
-        min_value = num
-# 输出最大和最小值。此处需要填写空白处5：输出最小值
-print(f"最大值是：{max_value}, 最小值是：{《 min_value 》}")
-</br>
-程序填空题：
-第一题
-a, b, c = eval(input())
-if a 《= b:
-    if b 《= c:
-        print(f"{a},{b},{c}")
-    else:
-        if a 《= c:
-            print(f"{a},{c},{b}")
-        else:
-            print(f"{c},{a},{b}")
-else:
-    if a 《= c:
-        print(f"{b},{a},{c}")
-    else:
-        if b 《= c:
-            print(f"{b},{c},{a}")
-        else:
-            print(f"{c},{b},{a}")
-        </br>
-第二题
-print(max(v)) #通过统计函数找出v中的最大元素并打印
-print(min(v)) #通过统计函数找出v中的最小元素并打印
-print(sum(v)) #通过统计函数求出v中全部元素的和
-print("%.2f" % sum(v)/len(v)) #借助于统计函数，求v中全部元素的均值并输出
-</br>
-编程题：
-1,俩表排序和负值平方运算
-# 输入数据并转换为列表
-data = input("请输入一个列表，使用逗号分隔每个元素：")
-data_list = [int(i) for i in data.split(',')]
+            //穷举第二题：
+            //旅行商问题
+            //商品推销员要去各个城市推销商品，
+            //任意两个城市间有一定距离，该推销员从丽江出发，
+            //需要经过所有城市并回到丽江
+            //求最短总路径长度。
+            //补全代码，实现旅行商问题的穷举算法。 
+            #include<stdio.h>
+                #define N 4
+                int dis[N][N]={{-1,5,3,4},{5,-1,7,6},{3,7,-1,-1},{4,6,-1,-1}},
+                minDis=100,path[N]={0,1,2,3},tempPath[]={0,1,2,3};
+                char cityName[N][20]={"丽江","北京","上海","深圳"};
+                void output()
+                {
+                    int i;
+                    printf("Path:");
+                    for(i=0;i<N;i++)
+                    printf("%s->",cityName[path[i]]);
+                    printf("%s\nlength:%d\n",cityName[0],minDis);
+                }
+                void dfs(int n)
+                {
 
-# 对列表进行升序排序
-data_list.sort()
+                    //补充代码位置
 
-# 打印升序排序后的列表
-print(data_list)
-
-# 对列表中的负数进行平方处理
-squared_negative_numbers = [i**2 for i in data_list if i 《 0]
-
-# 打印负数平方后的结果
-print(squared_negative_numbers)
-</br>
-2,输入一个字符串，输出首位交换翻转后的字符串
-
-# 输入字符串
-x = input("请输入一个字符串：")
-
-# 使用reversed函数翻转字符串，然后使用join方法合并成一个新的字符串
-y = ''.join(reversed(x))
-
-# 输出翻转后的字符串
-print(y)
-</br>
-3，计算1！+ 2！ 。。。。。。。。。
-
-# 输入n的值
-n = int(input("请输入n的值："))
-
-# 定义一个函数来计算阶乘
-def factorial(num):
-    if num == 0 or num == 1:
-        return 1
-    else:
-        return num * factorial(num - 1)
-
-# 初始化总和为0
-total_sum = 0
-
-# 循环计算每个数的阶乘，并累加
-for i in range(1, n + 1):
-    total_sum += factorial(i)
-
-# 输出最终的结果
-print(total_sum)
-</br>
-4，水仙花数
-
-# 遍历所有的三位数
-for n in range(100, 1000):
-    # 分离出百位、十位和个位的数字
-    a = n // 100
-    b = (n // 10) % 10
-    c = n % 10
-    # 检查是否满足水仙花数的条件
-    if a**3 + b**3 + c**3 == n:
-        # 如果是水仙花数，则打印该数
-        print(n)
-
-# 输出一个空行
-print()
-</br>
-5，按要求对成绩进行统计
-
-# 从控制台读取一行输入，将其分割为一个成绩列表
-scores = list(map(int, input("请输入一组考试成绩，每个成绩之间用空格隔开：").split()))
-
-# 计算及格人数
-pass_count = sum(score >= 60 for score in scores)
-
-# 计算及格率，并保留两位小数
-pass_rate = (pass_count / len(scores)) * 100
-
-# 计算平均分，并保留两位小数
-average_score = sum(scores) / len(scores)
-
-# 找到最高分和最低分
-max_score = max(scores)
-min_score = min(scores)
-
-# 按要求输出结果
-print(f"及格率:{pass_rate:.2f}%")
-print(f"平均分:{average_score:.2f}")
-print(f"最高分:{max_score}")
-print(f"最低分:{min_score}")
-</br>
-6，求列举所有三位数的水仙花数
-
-# 遍历所有三位数
-for num in range(100, 1000):
-    # 分离出百位、十位和个位的数字
-    a = num // 100
-    b = (num // 10) % 10
-    c = num % 10
-    # 检查是否满足水仙花数的条件
-    if a**3 + b**3 + c**3 == num:
-        # 如果是水仙花数，则打印该数
-        print(num)
-
-# 最后打印一个空行
-print()
-</br>
-7，按要求对成绩进行统计
-
-# 从控制台输入成绩
-scores = list(map(int, input().split()))
-
-# 计算及格率
-pass_count = sum(1 for score in scores if score >= 60)
-pass_rate = (pass_count / len(scores)) * 100
-
-# 计算平均分
-average_score = sum(scores) / len(scores)
-
-# 计算最高分和最低分
-max_score = max(scores)
-min_score = min(scores)
-
-# 输出结果
-print(f"及格率:{pass_rate:.2f}%")
-print(f"平均分:{average_score:.2f}")
-print(f"最高分:{max_score}")
-print(f"最低分:{min_score}")
-</br>
-8，编写一个函数，该函数接受一个整数列表作为输入，
-
-def second_largest(numbers):
-    # 如果列表为空或只有一个元素，返回 None
-    if len(numbers) 《 2:
-        return None
-    
-    # 使用集合去重
-    unique_numbers = list(set(numbers))
-    
-    # 如果去重后的列表长度小于2，说明所有元素都相同，返回 None
-    if len(unique_numbers) 《 2:
-        return None
-    
-    # 对去重后的列表进行排序
-    unique_numbers.sort()
-    
-    # 返回排序后列表的倒数第二个元素
-    return unique_numbers[-2]
-
-# 示例函数调用和期望输出
-print(second_largest([10, 20, 4, 45, 6, 89]))  # 应返回 45
-print(second_largest([10, 10, 10, 10]))       # 应返回 None（因为所有元素相同）
-print(second_largest([10]))                   # 应返回 None（因为元素少于两个）
-</br>
-9，检查是否是质数
-
-def is_prime(x):
-    # 质数定义为大于1的自然数
-    if x 《= 1:
-        return False
-    # 检查从2到x的平方根的所有数
-    for i in range(2, int(x**0.5) + 1):
-        if x % i == 0:
-            return False
-    return True
-
-# 从控制台输入一个整数
-x = int(input())
-
-# 检查是否是质数并输出结果
-if is_prime(x):
-    print(f"{x}是质数")
-else:
-print(f"{x}不是质数")
-
-简答题:
-
-1.简述数据分析与数据挖掘的区别与联系。
-数据分析主要是对已有数据进行统计、描述和解释，以发现数据中的规律和趋势。数据挖掘则是从大量数据中自动提取有用信息和知识，通常使用机器学习和统计方法。两者的联系在于数据挖掘是数据分析的一个高级阶段，数据分析为数据挖掘提供基础。</br>
-2.简述数据可视化分析的基本过程。
-数据可视化分析的基本过程包括：数据收集、数据清洗、数据转换、选择合适的可视化工具和方法、创建可视化图表、解释和分析图表、并根据分析结果进行决策。</br>
-3.简述Jupyter Notebook中编辑模式与命令模式之间的切换方法。
-在Jupyter Notebook中，按下 Enter 键可以从命令模式切换到编辑模式，按下 Esc 键可以从编辑模式切换到命令模式。</br>
-4.请简述Python中Matplotlib库常用的绘图有哪些种类。
-Matplotlib库常用的绘图种类包括：折线图（Line Plot）、散点图（Scatter Plot）、柱状图（Bar Chart）、直方图（Histogram）、饼图（Pie Chart）、箱线图（Box Plot）、面积图（Area Plot）等。</br>
-5.请简述Python中的Pandas库有哪些作用。
-Pandas库主要用于数据操作和分析，提供了高效的数据结构如DataFrame和Series，用于数据清洗、数据转换、数据聚合、数据可视化等。</br>
-6.请简述Python中Matplotlib库常用的绘图有哪些种类。
-Matplotlib库常用的绘图种类包括：折线图（Line Plot）、散点图（Scatter Plot）、柱状图（Bar Chart）、直方图（Histogram）、饼图（Pie Chart）、箱线图（Box Plot）、面积图（Area Plot）等。</br>
-7.请简述Python中的Pandas库有哪些作用。
-Pandas库主要用于数据操作和分析，提供了高效的数据结构如DataFrame和Series，用于数据清洗、数据转换、数据聚合、数据可视化等。</br>
-8.请简述Numpy中ndarray对象的属性。
-ndarray对象的主要属性包括：ndarray.ndim（数组的维数）、ndarray.shape（数组的形状）、ndarray.size（数组元素的总数）、ndarray.dtype（数组元素的数据类型）、ndarray.itemsize（每个元素的字节大小）、ndarray.data（包含实际数组元素的缓冲区）。
-</br>
-9.请简述Numpy是什么以及它在Python数据分析中的作用。
-NumPy是一个用于科学计算的Python库，提供了支持多维数组和矩阵运算的高效数据结构，以及大量的数学函数。它在数据分析中用于数值计算、数组操作、线性代数、随机数生成等。
-</br>
-10.请简述Python中的Pandas库与Numpy库的区别。
-NumPy主要用于数值计算和数组操作，提供了高效的多维数组对象ndarray。Pandas则在NumPy的基础上，提供了更高级的数据结构DataFrame和Series，专注于数据操作和分析，支持标签索引、数据清洗、数据聚合等功能。</br>
-11.请简述NumPy库中ndarray对象特点及其相比Python原生列表的优势。
-ndarray对象是NumPy的核心，支持多维数组和矩阵运算。相比Python原生列表，ndarray具有更高的性能和效率，支持矢量化操作、广播机制、内存连续性和更丰富的数学函数。</br>
-12.请简述Pandas库的主要功能及其在数据分析中的应用。
-Pandas库的主要功能包括：数据清洗、数据转换、数据聚合、数据可视化、时间序列分析等。在数据分析中，Pandas用于处理和分析结构化数据，提供了高效的数据操作和分析工具。</br>
-13.请简述函数在程序设计中的作用和优点。
-函数在程序设计中用于封装代码块，实现代码重用、提高代码可读性和可维护性。函数可以减少代码重复、简化复杂问题、提高开发效率和降低错误率。</br>
-14.请简述面向对象编程的主要特点。
-面向对象编程的主要特点包括：封装（Encapsulation）、继承（Inheritance）、多态（Polymorphism）和抽象（Abstraction）。这些特点使得代码更模块化、可重用、可扩展和易维护。</br>
-15.请简述Python在可视化分析中的优势。
-Python在可视化分析中的优势包括：丰富的可视化库（如Matplotlib、Seaborn、Plotly等）、简单易用的语法、强大的数据处理能力（结合Pandas和NumPy）、广泛的社区支持和大量的文档和教程资源。</br>
+                    int i,j,temp,curDis;
+                    if(n==N-1)
+                    {    curDis=0;
+                        for(j=1;j<N;j++)
+                        {
+                            if(dis[tempPath[j-1]][tempPath[j]]!=-1)
+                            {
+                                curDis+=dis[tempPath[j-1]][tempPath[j]];
+                            }
+                            else
+                                break;
+                        }
+                        if(j>=N)
+                        {
+                            curDis+=dis[tempPath[N-1]][0];
+                            if(curDis<minDis)
+                            {
+                                for(j=0;j<N;j++)path[j]=tempPath[j];
+                                minDis=curDis;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for(i=n;i<N;i++)
+                        {
+                            temp=tempPath[n];tempPath[n]=tempPath[i];tempPath[i]=temp;
+                            dfs(n+1);
+                            temp=tempPath[n];tempPath[n]=tempPath[i];tempPath[i]=temp;
+                        }
+                    }
+                }
+                void main()
+                {
+                    dfs(1);
+                    output();
+                }
 
 
-</p>
+                //分治第一题：
+                //归并排序
+                //补全代码，利用分治法实现归并排序过程。 
+                #include<stdio.h>
+                    #include<stdlib.h>
+                    #include<time.h>
+                    #define N 100
+                    void initData(int A[],int n)
+                    {
+                        srand((unsigned int)time(NULL));
+                        int i;
+                        for(i=0;i<n;i++)
+                        {
+                            A[i]=rand()%100;
+                        }
+                    }
+                    void merge(int a[],int left,int mid,int right)
+                    {
+                        int i,j,k,temp,*tempa=(int *)malloc(sizeof(int)*(right-left+1));
+                        i=left,j=mid+1;k=0;
+
+                        //补充代码位置
+                            
+                        while(i<=mid && j<=right)
+                        {
+                            if(a[i]<a[j])
+                            {
+                                tempa[k]=a[i];i++;
+                            }
+                            else
+                            {
+                                tempa[k]=a[j];j++;
+                            }
+                            k++;
+                        }
+                        while(i<=mid)tempa[k++]=a[i++];
+                        while(j<=right)tempa[k++]=a[j++];
+                        for(i=left;i<=right;i++)
+                        {
+                            a[i]=tempa[i-left];
+                        }
+                    }
+                    void mergeSort(int a[],int left,int right)
+                    {
+
+                        //补充代码位置
+
+                        int mid;
+                        if(left<right)
+                        {
+                            mid=(left+right)/2;
+                            mergeSort(a,left,mid);
+                            mergeSort(a,mid+1,right);
+                            merge(a,left,mid,right);
+                        }
+                    }
+                    void output(int A[],int n)
+                    {
+                        int i;
+                        for(i=0;i<n;i++)printf("%-4d",A[i]);
+                        printf("\n");
+                    }
+                    void main()
+                    {
+                        int n=10,a[N];
+                        initData(a,n);
+                        printf("disorder:");
+                        output(a,n);
+                        mergeSort(a,0,n-1);
+                        printf("ordered:");
+                        output(a,n);
+                    }
+                
+                //分治第二题：
+                //棋盘覆盖问题
+                //在一个8*8的小方格组成的棋盘上，有一个特殊点（x,y)已经被覆盖，
+                //其余位置利用如图所示的四种L型骨牌来实现对棋盘全覆盖且没有重叠的操作。
+                //补充代码输出一组可行解  
+                #include<stdio.h>
+                    int tol = 0;
+                    int v[100][100];
+                    void solve(int x,int y,int rx,int ry,int len)
+                    {
+
+                        //补充代码位置
+
+                        if(len==1)
+                        return;
+                        ++tol;
+                        len/=2;
+                        int num = tol;
+                        if(x+len>rx && y+len>ry)
+                            solve(x,y,rx,ry,len);
+                        else
+                        {
+                            v[x+len-1][y+len-1] = num;
+                            solve(x,y,x+len -1,y+len-1,len);
+                        }
+                        if(x+len>rx && y+len<=ry)
+                            solve(x,y+len,rx,ry,len);
+                        else
+                        {
+                            v[x+len-1][y+len] = num;
+                            solve(x,y+len,x+len-1,y+len,len);
+                        }
+                        if(x+len<=rx && y+len>ry)
+                            solve(x+len,y,rx,ry,len);
+                        else
+                        {
+                            v[x+len][y+len-1] = num;
+                            solve(x+len,y,x+len,y+len-1,len);
+                        }
+                        if(x+len<=rx &&y+len<=ry)
+                            solve(x+len,y+len,rx,ry,len);
+                        else
+                        {
+                            v[x+len][y+len] = num;
+                            solve(x+len,y+len,x+len,y+len,len);
+                        }
+                    }
+                    void output(int r,int c)
+                    {
+                        int i,j;
+                        for(i=0;i<r;i++)
+                        {
+                            for(j=0;j<c;j++)
+                            {
+                                printf("%-4d",v[i][j]);
+                            }    
+                        printf("\n");
+                        }
+                    }
+                    void main()
+                    {
+                        solve(0,0,2,3,8);
+                        output(8,8);
+                    }
+                    
+                //last第一题
+                //1.动态规划(10分)
+                //限定背包能够承受的重量C=5、物品数量n=4,
+                //物品的重量分别为1,2,3,4,物品的价值分别为2,4,4,5,
+                //求背包最大装入价值数。 
+
+                //last第二题
+                //图的着色问题 
+                #include<stdio.h>
+                    #include<stdlib.h>
+                    
+                    #define N 5 // 图的节点数
+                    
+                    int adjVertex[][N] = {   // 邻接矩阵表示图
+                        {0, 1, 1, 0, 0},
+                        {1, 0, 1, 1, 1},
+                        {1, 1, 0, 0, 1},
+                        {0, 1, 0, 0, 1},
+                        {0, 1, 1, 1, 0}
+                    };
+                    
+                    int colori[N] = {0, 0, 0, 0, 0};  // 用于存储每个节点的颜色
+                    int m = 10;  // 设定最大颜色数为10
+                    
+                    // 计算当前使用的最大颜色数
+                    int cnt_clr() {
+
+                        //补充代码位置
+
+                        int i,max = colori[0];
+                        for ( i = 1; i < N; i++) {
+                            if (colori[i] > max) {
+                                max = colori[i];
+                            }
+                        }
+                        return max;
+                    }
+                    
+                    // 检查是否可以给节点i上clrNum颜色
+                    int ok(int i, int clrNum) {
+                        for (int end = 0; end < N; end++) {
+                            if (adjVertex[i][end] && colori[end] == clrNum) {  // 如果i与end相邻且end的颜色与clrNum相同，则不合法
+                                return 0;
+                            }
+                        }
+                        return 1;  // 如果没有相邻节点的颜色与clrNum相同，返回合法
+                    }
+                    
+                    // 搜索最小的颜色数
+                    void search_min_clr(int i) {
+                        int clr=0,j;
+                         clr = cnt_clr(); // 获取当前的最大颜色数
+                    
+                        //补充代码位置
+
+                        // 如果当前颜色数已经超过了已经找到的最小颜色数m，则剪枝
+                        if (clr >= m) {
+                            return;
+                        }
+                    
+                        // 如果所有节点都已着色，更新最小颜色数
+                        if (i == N && clr<m) {
+                            m = clr;
+                            return;
+                        }
+                    
+                        // 尝试给第i个节点分配不同的颜色
+                        for ( j = 1; j <= m; j++) {
+                            // if (ok(i, j)) {  // 如果第i个节点可以上颜色j
+                            //     colori[i] = j; // 给节点i上颜色j
+                            //     search_min_clr(i + 1); // 递归着色下一个节点
+                            //     colori[i] = 0; // 回溯，重置节点i的颜色
+                            // }
+                            colori[i]=j;
+                            if(ok(i,j)){
+                                search_min_clr(i+1);
+                            }
+                            colori[i]=0;
+                        }
+                    }
+                    
+                    int main() {
+                        search_min_clr(0);  // 从第0个节点开始着色
+                        printf("color count: %d\n", m);  // 输出最小颜色数
+                       
+                    }
+
+                //last第三题
+                // 在格的国际象棋上摆放个皇后，使其不能互相攻击，
+                //即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少
+                //种摆法?
+                //补全代码，实现n皇后问题的求解
+
+                #include <stdio.h>
+                    #define N 100
+                    
+                    // 检查在第r行第j列放置皇后是否有冲突
+                    int ok(int r, int j, int arr[]) {
+
+                        //补充代码位置
+
+                        // for (int i = 0; i < r; i++) {
+                        //     // 检查同一列和同一对角线
+                        //     if (arr[i] == j || arr[i] - i == j - r || arr[i] + i == j + r) {
+                        //         return 0; // 有冲突
+                        //     }
+                        // }
+                        int i;
+                        for(i=0;i<r;i++){
+                            if(j==arr[i] || j-arr[i]==r-i || j-arr[i]==i-r){
+                                return 0;
+                            }
+                        }
+                        return 1; // 没有冲突
+                    }
+                    
+                    // 使用回溯法解决N皇后问题
+                    void Queen(int r, int arr[], int n) {
+
+                        //补充代码位置
+
+                        // if (r == n) {  // 如果已经放置了n个皇后，输出当前解
+                        //     for (int i = 0; i < n; i++) {
+                        //         printf("%d ", arr[i]);  // 输出皇后所在的列
+                        //     }
+                        //     printf("\n");
+                        int j,i;
+                        if(r==n){
+                            for(j=0;j<n;j++){
+                                for(i=0;i<n;i++){
+                                    if(arr[j]==i)
+                                        printf("#");
+                                    else
+                                        printf("*");
+                                }
+                                printf("\n");
+                            }
+                                printf("-----------------\n");
+                            }
+                            else
+                            {
+                                for(j=0;j<n;j++){
+                                    arr[r]=j;
+                                    if(ok(r,j,arr)){
+                                        Queen(r+1,arr,n);
+                                    }
+                                }
+                            }
+                        
+                       
+                    
+                        // 尝试在第r行的每个位置放置皇后
+                        for (int j = 0; j < n; j++) {
+                            if (ok(r, j, arr)) {  // 如果在第r行第j列放置皇后没有冲突
+                                arr[r] = j;  // 将皇后放在第r行第j列
+                                Queen(r + 1, arr, n);  // 递归地放置下一个皇后
+                                arr[r] = -1;  // 回溯，重置当前位置（不必要，但可以清晰表达）
+                            }
+                        }
+                    }
+                    
+                    
+                    int main() {
+                        int arr[N];  // 存储每一行皇后所在的列
+                        int n = 4;   // 设置棋盘大小为4，表示4皇后问题
+                        // for (int i = 0; i < n; i++) {
+                        //     arr[i] = -1;  // 初始化数组，-1表示当前行没有放置皇后
+                        // }
+                        Queen(0, arr, n);  // 从第0行开始解决问题
+                        // return 0;
+                    }
+                </div>      -->
+    </p>
 </body>
 </html>
